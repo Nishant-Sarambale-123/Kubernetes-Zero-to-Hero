@@ -1,3 +1,49 @@
+Got it 👍 In interviews, it’s very effective to not only explain the difference but also say **which ones are actually used in production and why**. Here’s the sequence:
+
+---
+
+## 🔹 Deployment Strategies (Production Preference Order)
+
+### **1. RollingUpdate (Most preferred, Default)**
+
+* **Used widely in production** because it’s built-in, safe, and requires no extra setup.
+* Ideal for **stateless applications** (web apps, APIs).
+* Gradual rollout, no downtime.
+
+---
+
+### **2. Canary**
+
+* Common in production when teams want **progressive delivery**.
+* Used with monitoring tools (Prometheus, Argo Rollouts, Flagger).
+* Preferred when new releases are **risky** and must be tested on a small % of users first.
+
+---
+
+### **3. Blue-Green**
+
+* Used in **critical applications** (banking, telecom, healthcare) where **instant rollback** is required.
+* Ensures zero downtime but **needs double resources**.
+* Often combined with CI/CD + traffic switch via Service/Ingress/LoadBalancer.
+
+---
+
+### **4. Recreate (Least used in production)**
+
+* Rare in production because it **causes downtime**.
+* Used only when **old and new versions cannot coexist** (e.g., DB schema migrations).
+
+---
+
+## ✅ Quick Interview-Ready Sequence
+
+👉 *“In production, the most commonly used strategy is **RollingUpdate** since it’s Kubernetes default and safe. For safer rollouts, **Canary** is often used with monitoring. **Blue-Green** is chosen for mission-critical apps needing instant rollback. **Recreate** is the least used, only when versions are incompatible, since it causes downtime.”*
+
+---
+
+Do you want me to also prepare a **visual flow diagram (sequence of strategies in production use)** that you can show in an interview?
+
+
 Great question 👍 — this is exactly what comes up in **Kubernetes production interviews**. Let me break it down clearly for you.
 
 ---
